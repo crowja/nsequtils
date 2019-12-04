@@ -1,6 +1,6 @@
 /**
  *  @file nsequtils.h
- *  @version 0.1.0
+ *  @version 0.1.1-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME

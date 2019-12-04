@@ -1,6 +1,6 @@
 /**
  *  @file nsequtils.c
- *  @version 0.1.0
+ *  @version 0.1.1-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
  *  @copyright %COPYRIGHT%
  *  @brief FIXME
@@ -464,7 +464,7 @@ nsequtils_left_align(unsigned type, char *a, char *b, double match, double indel
 const char *
 nsequtils_version(void)
 {
-   return "0.1.0";
+   return "0.1.1-dev0";
 }
 
 #undef _IS_NULL
