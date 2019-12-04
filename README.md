@@ -1,2 +1,2 @@
-# nsequtils
-Utilities for working with nucleotide sequence data.
+# nsequtils 0.0.0
+
