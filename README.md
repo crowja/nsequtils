@@ -1,2 +1,2 @@
-# nsequtils 0.1.1-dev0
+# nsequtils 0.2.0-dev0
 

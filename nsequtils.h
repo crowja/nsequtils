@@ -1,6 +1,6 @@
 /**
  *  @file nsequtils.h
- *  @version 0.1.1-dev0
+ *  @version 0.2.0-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
  *  @copyright 2020 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
