@@ -2,9 +2,8 @@
  *  @file nsequtils.h
  *  @version 0.1.1-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
- *  @copyright %COPYRIGHT%
- *  @brief FIXME
- *  @details FIXME
+ *  @copyright 2020 John A. Crow <crowja@gmail.com>
+ *  @license Unlicense <http://unlicense.org/>
  */
 
 #ifndef _NSEQUTILS_H_
