@@ -69,8 +69,8 @@ indent: stamp
 	done
 
 stamp:
-	@bash stamper.bash nsequtils.c
-	@bash stamper.bash nsequtils.h
+	@stamper.bash nsequtils.c
+	@stamper.bash nsequtils.h
 
 clean:
 	@/bin/rm -f nsequtils.o *.o *~ *.BAK *.bak core.* a.out
