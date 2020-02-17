@@ -2,17 +2,12 @@
  *  @file nsequtils.h
  *  @version 0.2.0-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
- *  @copyright 2020 John A. Crow <crowja@gmail.com>
+ *  @copyright 2018 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
 
-#ifndef _NSEQUTILS_H_
-#define _NSEQUTILS_H_
-
-#ifdef  _PACKAGE_NAME
-#undef  _PACKAGE_NAME
-#endif
-#define _PACKAGE_NAME "nsequtils"
+#ifndef NSEQUTILS_H
+#define NSEQUTILS_H
 
 /**
  *  @brief FIXME Example function.
@@ -100,4 +95,5 @@ int         nsequtils_left_align(unsigned type, char *a, char *b,
  *  @details FIXME longer description here ...
  */
 const char *nsequtils_version(void);
+
 #endif

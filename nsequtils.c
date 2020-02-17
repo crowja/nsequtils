@@ -2,7 +2,7 @@
  *  @file nsequtils.c
  *  @version 0.2.0-dev0
  *  @date Wed Dec  4 12:42:12 CST 2019
- *  @copyright 2020 John A. Crow <crowja@gmail.com>
+ *  @copyright 2018 John A. Crow <crowja@gmail.com>
  *  @license Unlicense <http://unlicense.org/>
  */
 
@@ -14,17 +14,15 @@
 #include <ctype.h>
 #include "nsequtils.h"
 
-#ifdef  _IS_NULL
-#undef  _IS_NULL
+#ifdef  IS_NULL
+#undef  IS_NULL
 #endif
-#define _IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
+#define IS_NULL(p)   ((NULL == (p)) ? (1) : (0))
 
-#ifdef  _FREE
-#undef  _FREE
+#ifdef  FREE
+#undef  FREE
 #endif
-#define _FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
-
-/*** _align_score() ***/
+#define FREE(p)      ((NULL == (p)) ? (0) : (free((p)), (p) = NULL))
 
 static double
 _align_score(unsigned type, char *a, char *b, double match, double indel, double mismatch,
@@ -49,8 +47,8 @@ _align_score(unsigned type, char *a, char *b, double match, double indel, double
       for (i = 1; i < mp1; i++) {
          double      s0, s1, w;
 
-         if (_IS_NULL(strchr("ACGTUacgtu", a[i - 1]))
-             || _IS_NULL(strchr("ACGTUacgtu", b[j - 1])))
+         if (IS_NULL(strchr("ACGTUacgtu", a[i - 1]))
+             || IS_NULL(strchr("ACGTUacgtu", b[j - 1])))
             w = -ambig;                          /* comparing one or more ambiguity codes */
 
          else
@@ -78,15 +76,13 @@ _align_score(unsigned type, char *a, char *b, double match, double indel, double
    return score;
 }
 
-/*** nsequtils_clean() ***/
-
 void
 nsequtils_clean(char *s, int flag)
 {
    unsigned    i, j;
    unsigned    len;
 
-   if (_IS_NULL(s))
+   if (IS_NULL(s))
       return;
 
    len = strlen(s);
@@ -108,8 +104,6 @@ nsequtils_clean(char *s, int flag)
 
    s[j] = '\0';
 }
-
-/*** nsequtils_count_gc() ***/
 
 void
 nsequtils_count_gc(char *s, unsigned *gc, unsigned *at, unsigned *others)
@@ -145,9 +139,6 @@ nsequtils_count_gc(char *s, unsigned *gc, unsigned *at, unsigned *others)
    }
 }
 
-
-/*** nsequtils_crush() ***/
-
 void
 nsequtils_crush(char *s)
 {
@@ -166,8 +157,6 @@ nsequtils_crush(char *s)
    s[j] = '\0';
 }
 
-/*** nsequtils_extract_fasta_id() ***/
-
 void
 nsequtils_extract_fasta_id(char **id, char *h)
 {
@@ -176,9 +165,6 @@ nsequtils_extract_fasta_id(char **id, char *h)
    strncpy(*id, h, len);
    (*id)[len] = '\0';
 }
-
-
-/*** nsequtils_nwscore() ***/
 
 double
 nsequtils_nwscore(char *a, char *b, double match, double indel, double mismatch,
@@ -190,9 +176,6 @@ nsequtils_nwscore(char *a, char *b, double match, double indel, double mismatch,
    else
       return _align_score(0, b, a, match, indel, mismatch, ambig, wrk);
 }
-
-
-/*** nsequtils_orf_length() ***/
 
 unsigned
 nsequtils_orf_length(char *s, unsigned offset)
@@ -218,8 +201,6 @@ nsequtils_orf_length(char *s, unsigned offset)
 
    return length;
 }
-
-/*** nsequtils_revcom() ***/
 
 void
 nsequtils_revcom(char *s)
@@ -339,8 +320,6 @@ nsequtils_revcom(char *s)
    }
 }
 
-/*** nsequtils_swscore() ***/
-
 double
 nsequtils_swscore(char *a, char *b, double match, double indel, double mismatch,
                   double ambig, double *wrk)
@@ -352,8 +331,6 @@ nsequtils_swscore(char *a, char *b, double match, double indel, double mismatch,
       return _align_score(1, b, a, match, indel, mismatch, ambig, wrk);
 }
 
-
-/*** nsequtils_to_dna() ***/
 
 void
 nsequtils_to_dna(char *s)
@@ -378,8 +355,6 @@ nsequtils_to_dna(char *s)
    }
 }
 
-/*** nsequtils_to_rna() ***/
-
 void
 nsequtils_to_rna(char *s)
 {
@@ -402,8 +377,6 @@ nsequtils_to_rna(char *s)
       }
    }
 }
-
-/*** nsequtils_left_align() ***/
 
 int
 nsequtils_left_align(unsigned type, char *a, char *b, double match, double indel,
@@ -428,8 +401,8 @@ nsequtils_left_align(unsigned type, char *a, char *b, double match, double indel
       for (i = 1; i <= mp1; i++) {
          double      s0, s1, w;
 
-         if (_IS_NULL(strchr("acgtuACGTU", a[i - 1]))
-             || _IS_NULL(strchr("acgtuACGTU", b[j - 1])))
+         if (IS_NULL(strchr("acgtuACGTU", a[i - 1]))
+             || IS_NULL(strchr("acgtuACGTU", b[j - 1])))
             w = -ambig;
 
          else
@@ -458,13 +431,11 @@ nsequtils_left_align(unsigned type, char *a, char *b, double match, double indel
    return 0;
 }
 
-/*** nsequtils_version() ***/
-
 const char *
 nsequtils_version(void)
 {
    return "0.2.0-dev0";
 }
 
-#undef _IS_NULL
-#undef _FREE
+#undef IS_NULL
+#undef FREE
